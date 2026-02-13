@@ -249,13 +249,28 @@
     yesBtn.addEventListener("touchend",()=>clearTimeout(pressTimer));
 
     yesBtn.addEventListener("click",()=>{
-      yesClicks++; scale+=.06; yesBtn.style.transform=`scale(${scale})`;
-      success.style.display="block";
-      if(navigator.vibrate) navigator.vibrate([120,60,120]);
-      music.play().catch(()=>{}); spawnHearts(24);
-      if(yesClicks>1){ multiYesMsg.style.display="block"; setTimeout(()=>multiYesMsg.style.display="none",3000); }
-      setTimeout(()=>{ finalScreen.style.display="flex"; spawnHearts(60); },1200);
-    });
+  yesClicks++; scale+=.06; yesBtn.style.transform=`scale(${scale})`;
+  if(navigator.vibrate) navigator.vibrate([120,60,120]);
+  music.play().catch(()=>{}); spawnHearts(24);
+
+  // Show success message after a short, sweet delay
+  setTimeout(()=>{
+    success.style.display="block";
+  }, 500);
+
+  if(yesClicks>1){
+    setTimeout(()=>{
+      multiYesMsg.style.display="block";
+      setTimeout(()=>multiYesMsg.style.display="none",3000);
+    }, 700);
+  }
+
+  setTimeout(()=>{
+    finalScreen.style.display="flex";
+    spawnHearts(60);
+  }, 1500);
+});
+
 
     replayBtn.addEventListener("click",()=>{
       finalScreen.style.display="none"; success.style.display="none";
@@ -315,3 +330,4 @@ couplePhoto.addEventListener("touchend", () => {
   </script>
 </body>
 </html>
+
