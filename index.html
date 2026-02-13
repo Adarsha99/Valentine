@@ -20,12 +20,8 @@
         --couple: 190px;
       }
     }
-    /* iPhone Plus / Pro Max height optimization */
     @media (min-height: 850px){
-      :root{
-        --anime: 240px;
-        --couple: 200px;
-      }
+      :root{ --anime: 240px; --couple: 200px; }
       .card{ padding: 2rem 1.8rem 1.9rem; }
     }
 
@@ -38,30 +34,14 @@
     }
     @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-    .postcard{
-      position:fixed; inset:0; z-index:10;
-      background:#fff; display:flex; align-items:center; justify-content:center;
-      animation:fadeIn .6s ease;
-    }
-    .postcard-card{
-      background:#fff; border-radius:22px; padding:2.2rem 2rem;
-      box-shadow:0 20px 40px rgba(0,0,0,.12);
-      text-align:center; cursor:pointer;
-      animation:floatIn .8s ease;
-    }
-    .postcard h2{
-      font-family:Pacifico,cursive; font-size:1.9rem; color:#be185d; margin:0 0 .3rem;
-    }
+    .postcard{position:fixed; inset:0; z-index:10; background:#fff; display:flex; align-items:center; justify-content:center; animation:fadeIn .6s ease;}
+    .postcard-card{background:#fff; border-radius:22px; padding:2.2rem 2rem; box-shadow:0 20px 40px rgba(0,0,0,.12); text-align:center; cursor:pointer; animation:floatIn .8s ease;}
+    .postcard h2{font-family:Pacifico,cursive; font-size:1.9rem; color:#be185d; margin:0 0 .3rem;}
     .postcard .heart{font-size:1.4rem; color:#e11d48}
     @keyframes floatIn{from{transform:translateY(12px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    .card{
-      background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);
-      padding:1.8rem 1.6rem 1.7rem;border-radius:26px;
-      box-shadow:0 20px 40px rgba(236,72,153,0.25);
-      text-align:center;width:92%;max-width:var(--card-w);
-      animation:popIn .7s ease;z-index:5; display:none;
-    }
+    .card{background:rgba(255,255,255,0.92);backdrop-filter:blur(10px); padding:1.8rem 1.6rem 1.7rem;border-radius:26px; box-shadow:0 20px 40px rgba(236,72,153,0.25); text-align:center;width:92%;max-width:var(--card-w); animation:popIn .7s ease;z-index:5; display:none;}
     @keyframes popIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 
     h1{font-family:Pacifico,cursive;font-size:var(--title);color:#be185d;margin:.2rem 0 .2rem}
@@ -74,58 +54,24 @@
 
     .btns{position:relative;height:120px;display:flex;gap:0.8rem;align-items:flex-start;justify-content:center}
     button{padding:.7rem 1.4rem;border:none;border-radius:999px;font-size:.95rem;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.12);transition:transform .15s ease, box-shadow .2s ease}
-    #yes{
-      background:linear-gradient(135deg,#ec4899,#fb7185);color:#fff;
-      animation:yesPulse 3.5s ease-in-out infinite;
-    }
-    @keyframes yesPulse{
-      0%,100%{box-shadow:0 0 0 rgba(236,72,153,0.0)}
-      50%{box-shadow:0 0 22px rgba(236,72,153,0.45)}
-    }
+    #yes{background:linear-gradient(135deg,#ec4899,#fb7185);color:#fff; animation:yesPulse 3.5s ease-in-out infinite;}
+    @keyframes yesPulse{0%,100%{box-shadow:0 0 0 rgba(236,72,153,0.0)}50%{box-shadow:0 0 22px rgba(236,72,153,0.45)}}
     #no{background:#f1f5f9;color:#334155;position:relative}
     #no.wiggle{animation:wiggle .25s ease-in-out}
-    @keyframes wiggle{
-      0%{transform:translateX(0)}
-      25%{transform:translateX(-3px)}
-      50%{transform:translateX(3px)}
-      75%{transform:translateX(-2px)}
-      100%{transform:translateX(0)}
-    }
+    @keyframes wiggle{0%{transform:translateX(0)}25%{transform:translateX(-3px)}50%{transform:translateX(3px)}75%{transform:translateX(-2px)}100%{transform:translateX(0)}}
 
-    .success{display:none;margin-top:.7rem;font-size:.95rem;color:#16a34a;font-weight:700;line-height:1.4;animation:fadeIn .6s ease}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
-    .final{
-      display:none;position:fixed;inset:0;z-index:6;
-      align-items:center;justify-content:center;text-align:center;padding:1.4rem;flex-direction:column;gap:.8rem;
-      background:linear-gradient(rgba(255,228,230,.8),rgba(255,209,220,.8)),url('couple.jpg') center/cover no-repeat
-    }
+    .final{display:none;position:fixed;inset:0;z-index:6; align-items:center;justify-content:center;text-align:center;padding:1.4rem;flex-direction:column;gap:.8rem; background:linear-gradient(rgba(255,228,230,.8),rgba(255,209,220,.8)),url('couple.jpg') center/cover no-repeat}
     .final::before{content:"";position:absolute;inset:0;backdrop-filter:blur(10px)}
-    .final-inner{
-      position:relative;z-index:2;background:rgba(255,255,255,.92);
-      border-radius:22px;padding:1.1rem 1.1rem 1.2rem;
-      box-shadow:0 20px 40px rgba(236,72,153,.25);max-width:460px;width:100%
-    }
+    .final-inner{position:relative;z-index:2;background:rgba(255,255,255,.92); border-radius:22px;padding:1.1rem 1.1rem 1.2rem; box-shadow:0 20px 40px rgba(236,72,153,.25);max-width:460px;width:100%}
     .final h2{font-family:Pacifico,cursive;font-size:2rem;color:#be185d;margin:.2rem 0}
     .final p{font-size:1rem;color:#334155}
     .tiny-photo{width:var(--couple);height:var(--couple);border-radius:18px;object-fit:cover;box-shadow:0 10px 20px rgba(0,0,0,.2);border:3px solid #fff;margin:.35rem auto .45rem}
     .replay{padding:.55rem 1.3rem;border-radius:999px;border:none;background:linear-gradient(135deg,#ec4899,#fb7185);color:#fff;font-size:.95rem;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.15)}
 
-    .secret{
-      display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
-      background:#fff0f6;color:#be185d;padding:.6rem 1rem;border-radius:999px;
-      box-shadow:0 8px 18px rgba(236,72,153,.25);font-size:.85rem;z-index:8;animation:fadeIn .4s ease
-    }
-    .heart{
-      position:absolute;bottom:-20px;font-size:18px;opacity:.95;color:#e11d48;
-      animation:floatUp 5s linear infinite;pointer-events:none
-    }
+    .secret{display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%); background:#fff0f6;color:#be185d;padding:.6rem 1rem;border-radius:999px; box-shadow:0 8px 18px rgba(236,72,153,.25);font-size:.85rem;z-index:8;}
+    .heart{position:absolute;bottom:-20px;font-size:18px;opacity:.95;color:#e11d48; animation:floatUp 5s linear infinite;pointer-events:none}
     @keyframes floatUp{0%{transform:translateY(0) scale(.9);opacity:0}10%{opacity:.95}100%{transform:translateY(-110vh) scale(1.5);opacity:0}}
-    .rainbow{
-      position:fixed; inset:0; z-index:9; pointer-events:none;
-      background:radial-gradient(circle at center, rgba(255,0,150,.15), rgba(0,150,255,.12), rgba(255,255,255,0));
-      animation:rainbowFlash .8s ease forwards;
-    }
+    .rainbow{position:fixed; inset:0; z-index:9; pointer-events:none; background:radial-gradient(circle at center, rgba(255,0,150,.15), rgba(0,150,255,.12), rgba(255,255,255,0)); animation:rainbowFlash .8s ease forwards;}
     @keyframes rainbowFlash{from{opacity:0}50%{opacity:1}to{opacity:0}}
   </style>
 </head>
@@ -135,7 +81,6 @@
   <audio id="kissSound" src="kiss.mp3"></audio>
   <audio id="openSound" src="open.mp3"></audio>
 
-  <!-- Postcard opener -->
   <div class="postcard" id="postcard">
     <div class="postcard-card" id="openCard">
       <h2>From Mimi</h2>
@@ -144,35 +89,30 @@
     </div>
   </div>
 
-  <!-- Main card -->
   <div class="card" id="card">
     <h1>Krishna, will you be my Valentine?</h1>
     <div class="hint">Psst… try clicking “No” once 😏</div>
     <div class="sub">From Mimi 💖</div>
-
-    <div class="anime-box">
-      <img id="animeImg" src="kiss.png" alt="anime">
-    </div>
-
+    <div class="anime-box"><img id="animeImg" src="kiss.png" alt="anime"></div>
     <div class="btns" id="btns">
       <button id="yes">Yes</button>
       <button id="no">No</button>
     </div>
+  </div>
 
-  <!-- Final screen -->
   <div class="final" id="final">
     <div class="final-inner">
       <img src="couple.jpg" class="tiny-photo" alt="Us" id="couplePhoto">
       <h2>You’re my Valentine, Krishna 💗</h2>
       <p style="font-weight:600;color:#be185d;margin:.2rem 0 .4rem">
-  You just made Mimi smile so wide 💕<br>
-  I just wanted to see you smile like this.
-</p>
+        You just made Mimi smile so wide 💕<br>
+        I just wanted to see you smile like this.
+      </p>
       <p>Love, Mimi</p>
       <p style="font-size:.85rem;color:#64748b">
-  Tip: Shake your phone 😉<br>
-  <span style="font-size:.8rem;opacity:.8">Can’t shake? Tap the photo twice 😉</span>
-</p>
+        Tip: Shake your phone 😉<br>
+        <span style="font-size:.8rem;opacity:.8">Can’t shake? Tap the photo twice 😉</span>
+      </p>
       <button class="replay" id="replayBtn">Replay 💫</button>
     </div>
   </div>
@@ -186,42 +126,31 @@
     const postcard=document.getElementById("postcard");
     const openCard=document.getElementById("openCard");
     const card=document.getElementById("card");
-
     const noBtn=document.getElementById("no"),yesBtn=document.getElementById("yes"),
-      success=document.getElementById("success"),animeImg=document.getElementById("animeImg"),
-      finalScreen=document.getElementById("final"),replayBtn=document.getElementById("replayBtn"),
-      music=document.getElementById("bgMusic"),kissSound=document.getElementById("kissSound"),
-      openSound=document.getElementById("openSound"),
-      secretNo=document.getElementById("secretNo"),longPressMsg=document.getElementById("longPressMsg"),
-      multiYesMsg=document.getElementById("multiYesMsg"),photoSecret=document.getElementById("photoSecret"),
-      btns=document.getElementById("btns"),couplePhoto=document.getElementById("couplePhoto");
+      animeImg=document.getElementById("animeImg"), finalScreen=document.getElementById("final"),
+      replayBtn=document.getElementById("replayBtn"), music=document.getElementById("bgMusic"),
+      kissSound=document.getElementById("kissSound"), openSound=document.getElementById("openSound"),
+      secretNo=document.getElementById("secretNo"), longPressMsg=document.getElementById("longPressMsg"),
+      multiYesMsg=document.getElementById("multiYesMsg"), photoSecret=document.getElementById("photoSecret"),
+      btns=document.getElementById("btns"), couplePhoto=document.getElementById("couplePhoto");
 
     const images=["kiss.png","selfie.png","lipstick.png"];
-    let i=0,noClicks=0,yesClicks=0,pressTimer,scale=1,hasShaken=false,lastShake=0,photoPressTimer;
+    let i=0,noClicks=0,yesClicks=0,pressTimer,scale=1,hasShaken=false,lastShake=0,photoPressTimer,lastTap=0;
 
     setInterval(()=>animeImg.src=images[i=(i+1)%images.length],2200);
 
     openCard.addEventListener("click", async ()=>{
-  openSound.currentTime=0; openSound.play().catch(()=>{});
-  if(navigator.vibrate) navigator.vibrate(20);
-
-  // Ask for motion permission on iOS
-  if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
-    try {
-      const response = await DeviceMotionEvent.requestPermission();
-      console.log("Motion permission:", response);
-    } catch (e) {
-      console.log("Motion permission error", e);
-    }
-  }
-
-  spawnHearts(30);
-  const rb=document.createElement("div"); rb.className="rainbow"; document.body.appendChild(rb);
-  setTimeout(()=>rb.remove(),900);
-  postcard.style.display="none";
-  card.style.display="block";
-});
-
+      openSound.currentTime=0; openSound.play().catch(()=>{});
+      if(navigator.vibrate) navigator.vibrate(20);
+      if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
+        try { await DeviceMotionEvent.requestPermission(); } catch(e){}
+      }
+      spawnHearts(30);
+      const rb=document.createElement("div"); rb.className="rainbow"; document.body.appendChild(rb);
+      setTimeout(()=>rb.remove(),900);
+      postcard.style.display="none";
+      card.style.display="block";
+    });
 
     function moveNo(){
       noBtn.classList.add("wiggle");
@@ -229,80 +158,50 @@
       const rect=btns.getBoundingClientRect();
       const x=Math.random()*(rect.width-60);
       const y=Math.random()*(rect.height-40);
-      noBtn.style.position="absolute";
-      noBtn.style.left=x+"px";
-      noBtn.style.top=y+"px";
+      noBtn.style.position="absolute"; noBtn.style.left=x+"px"; noBtn.style.top=y+"px";
     }
     noBtn.addEventListener("mouseenter",moveNo);
     noBtn.addEventListener("touchstart",moveNo);
-    noBtn.addEventListener("click",()=>{noClicks++;moveNo();if(noClicks===3){secretNo.style.display="block";setTimeout(()=>secretNo.style.display="none",3000)}});
+    noBtn.addEventListener("click",()=>{ noClicks++; moveNo(); if(noClicks===3){ secretNo.style.display="block"; setTimeout(()=>secretNo.style.display="none",3000); } });
 
-    function showLongPressYes(){
-      kissSound.currentTime=0; kissSound.play().catch(()=>{});
-      longPressMsg.style.display="block"; setTimeout(()=>longPressMsg.style.display="none",3000);
-    }
+    function showLongPressYes(){ kissSound.currentTime=0; kissSound.play().catch(()=>{}); longPressMsg.style.display="block"; setTimeout(()=>longPressMsg.style.display="none",3000); }
     yesBtn.addEventListener("mousedown",()=>pressTimer=setTimeout(showLongPressYes,700));
     yesBtn.addEventListener("mouseup",()=>clearTimeout(pressTimer));
     yesBtn.addEventListener("touchstart",()=>pressTimer=setTimeout(showLongPressYes,700));
     yesBtn.addEventListener("touchend",()=>clearTimeout(pressTimer));
 
     yesBtn.addEventListener("click",()=>{
-  yesClicks++; scale+=.06; yesBtn.style.transform=`scale(${scale})`;
-  if(navigator.vibrate) navigator.vibrate([120,60,120]);
-  music.play().catch(()=>{}); spawnHearts(24);
-
-  // Show success message after a short, sweet delay
-  setTimeout(()=>{
-    success.style.display="block";
-  }, 500);
-
-  if(yesClicks>1){
-    setTimeout(()=>{
-      multiYesMsg.style.display="block";
-      setTimeout(()=>multiYesMsg.style.display="none",3000);
-    }, 700);
-  }
-
-  setTimeout(()=>{
-    finalScreen.style.display="flex";
-    spawnHearts(60);
-  }, 1500);
-});
-
+      yesClicks++; scale+=.06; yesBtn.style.transform=`scale(${scale})`;
+      if(navigator.vibrate) navigator.vibrate([120,60,120]);
+      music.play().catch(()=>{}); spawnHearts(24);
+      if(yesClicks>1){ setTimeout(()=>{ multiYesMsg.style.display="block"; setTimeout(()=>multiYesMsg.style.display="none",3000); }, 600); }
+      setTimeout(()=>{ finalScreen.style.display="flex"; spawnHearts(60); }, 1200);
+    });
 
     replayBtn.addEventListener("click",()=>{
-      finalScreen.style.display="none"; success.style.display="none";
+      finalScreen.style.display="none";
       noClicks=0; yesClicks=0; scale=1; yesBtn.style.transform="scale(1)";
       hasShaken=false; music.currentTime=0;
       noBtn.style.position="relative"; noBtn.style.left=""; noBtn.style.top="";
       spawnHearts(40);
     });
 
-    couplePhoto.addEventListener("mousedown",()=>photoPressTimer=setTimeout(()=>{
-      photoSecret.style.display="block"; setTimeout(()=>photoSecret.style.display="none",2500);
-    },700));
+    couplePhoto.addEventListener("mousedown",()=>photoPressTimer=setTimeout(()=>{ photoSecret.style.display="block"; setTimeout(()=>photoSecret.style.display="none",2500); },700));
     couplePhoto.addEventListener("mouseup",()=>clearTimeout(photoPressTimer));
-    couplePhoto.addEventListener("touchstart",()=>photoPressTimer=setTimeout(()=>{
-      photoSecret.style.display="block"; setTimeout(()=>photoSecret.style.display="none",2500);
-    },700));
+    couplePhoto.addEventListener("touchstart",()=>photoPressTimer=setTimeout(()=>{ photoSecret.style.display="block"; setTimeout(()=>photoSecret.style.display="none",2500); },700));
     couplePhoto.addEventListener("touchend",()=>clearTimeout(photoPressTimer));
-    // Double-tap fallback for iOS if shake doesn't work
-let lastTap = 0;
-couplePhoto.addEventListener("touchend", () => {
-  const now = Date.now();
-  if (now - lastTap < 350) {
-    const msg = document.createElement("div");
-    msg.className = "secret";
-    msg.textContent = "Miss you, come home soon";
-    document.body.appendChild(msg);
-    setTimeout(() => {
-      msg.style.opacity = "0";
-      setTimeout(() => msg.remove(), 800);
-    }, 1800);
-  }
-  lastTap = now;
-});
 
+    couplePhoto.addEventListener("touchend", () => {
+      const now = Date.now();
+      if (now - lastTap < 350) {
+        const msg = document.createElement("div");
+        msg.className = "secret";
+        msg.textContent = "Miss you, come home soon";
+        document.body.appendChild(msg);
+        setTimeout(()=>{ msg.style.opacity="0"; setTimeout(()=>msg.remove(),800); },1800);
+      }
+      lastTap = now;
+    });
 
     window.addEventListener("devicemotion",(e)=>{
       const acc=e.accelerationIncludingGravity;
@@ -328,5 +227,7 @@ couplePhoto.addEventListener("touchend", () => {
   </script>
 </body>
 </html>
+
+
 
 
