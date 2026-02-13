@@ -171,7 +171,10 @@
       <img src="couple.jpg" class="tiny-photo" alt="Us" id="couplePhoto">
       <h2>You’re my Valentine, Krishna 💗</h2>
       <p>Love, Mimi</p>
-      <p style="font-size:.85rem;color:#64748b">Tip: Shake your phone 😉</p>
+      <p style="font-size:.85rem;color:#64748b">
+  Tip: Shake your phone 😉<br>
+  <span style="font-size:.8rem;opacity:.8">Can’t shake? Tap the photo twice 😉</span>
+</p>
       <button class="replay" id="replayBtn">Replay 💫</button>
     </div>
   </div>
@@ -200,15 +203,27 @@
 
     setInterval(()=>animeImg.src=images[i=(i+1)%images.length],2200);
 
-    openCard.addEventListener("click",()=>{
-      openSound.currentTime=0; openSound.play().catch(()=>{});
-      if(navigator.vibrate) navigator.vibrate(20);
-      spawnHearts(30);
-      const rb=document.createElement("div"); rb.className="rainbow"; document.body.appendChild(rb);
-      setTimeout(()=>rb.remove(),900);
-      postcard.style.display="none";
-      card.style.display="block";
-    });
+    openCard.addEventListener("click", async ()=>{
+  openSound.currentTime=0; openSound.play().catch(()=>{});
+  if(navigator.vibrate) navigator.vibrate(20);
+
+  // Ask for motion permission on iOS
+  if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
+    try {
+      const response = await DeviceMotionEvent.requestPermission();
+      console.log("Motion permission:", response);
+    } catch (e) {
+      console.log("Motion permission error", e);
+    }
+  }
+
+  spawnHearts(30);
+  const rb=document.createElement("div"); rb.className="rainbow"; document.body.appendChild(rb);
+  setTimeout(()=>rb.remove(),900);
+  postcard.style.display="none";
+  card.style.display="block";
+});
+
 
     function moveNo(){
       noBtn.classList.add("wiggle");
@@ -258,6 +273,23 @@
       photoSecret.style.display="block"; setTimeout(()=>photoSecret.style.display="none",2500);
     },700));
     couplePhoto.addEventListener("touchend",()=>clearTimeout(photoPressTimer));
+    // Double-tap fallback for iOS if shake doesn't work
+let lastTap = 0;
+couplePhoto.addEventListener("touchend", () => {
+  const now = Date.now();
+  if (now - lastTap < 350) {
+    const msg = document.createElement("div");
+    msg.className = "secret";
+    msg.textContent = "Miss you, come home soon";
+    document.body.appendChild(msg);
+    setTimeout(() => {
+      msg.style.opacity = "0";
+      setTimeout(() => msg.remove(), 800);
+    }, 1800);
+  }
+  lastTap = now;
+});
+
 
     window.addEventListener("devicemotion",(e)=>{
       const acc=e.accelerationIncludingGravity;
